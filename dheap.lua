@@ -103,6 +103,13 @@ function dheap:pop()
   return x[1], x[2]
 end
 
+-- returns the minimum priority and the associated value
+function dheap:peek()
+  local x = self[0]
+  if not x then return end
+  return x[1], x[2]
+end
+
 -- deletes the node with value v and returns its priority
 function dheap:delete(v)
   for i=1,#self do
