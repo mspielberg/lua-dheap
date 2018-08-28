@@ -83,16 +83,20 @@ end
 local function delete_at_index(self, n)
   local x = self[n]
   if not x then return end
-  self[n], self[#self] = self[#self], nil
+  local l = #self
+  self[n] = self[l]
+  self[l] = nil
   heapify(self)
   return x[1]
 end
 
--- deletes the node with minimum priotity and returns its priority and value
+-- deletes the node with minimum priority and returns its priority and value
 function dheap:pop()
   local x = self[0]
   if not x then return end
-  self[0], self[#self] = self[#self], nil
+  local l = #self
+  self[0] = self[l]
+  self[l] = nil
 
   heapdown(self, 0)
 
