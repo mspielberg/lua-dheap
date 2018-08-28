@@ -112,7 +112,8 @@ end
 
 -- deletes the node with value v and returns its priority
 function dheap:delete(v)
-  for i=1,#self do
+  if not self[0] then return end
+  for i=0,#self do
     if self[i][2] == v then
       return delete_at_index(self, i)
     end
